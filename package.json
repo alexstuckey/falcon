@@ -1,0 +1,19 @@
+{
+  "name": "falcon",
+  "private": true,
+  "version": "0.0.1",
+  "description": "  The System Garden notification system.",
+  "dependencies": {
+    "amqp": "0.1.7"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "repository": "",
+  "author": "Alex Stuckey <alex.stuckey@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
