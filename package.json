@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "description": "  The System Garden notification system.",
   "dependencies": {
-    "amqp": "0.1.7"
+    "amqp": "0.1.7",
+    "nodemailer": ">=0.5"
   },
   "scripts": {
     "start": "node server.js"
