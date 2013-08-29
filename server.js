@@ -36,3 +36,8 @@ connection.on('ready', function(){
                   })
 
 })
+
+process.on('uncaughtException', function(err) {
+  console.log(err.stack);
+  throw err;
+});
