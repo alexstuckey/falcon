@@ -2,7 +2,7 @@ exports.info = {
   name: "email"
 }
 
-exports.send = function(address, plainbody) {
+exports.send = function(address, message) {
   var fs = require('fs')
   // Load the configuration JSON file
   var config = JSON.parse(fs.readFileSync('./config.json'))
@@ -21,8 +21,8 @@ exports.send = function(address, plainbody) {
   var email = {
     from: config.SMTP.from,
     to: address,
-    subject: "Here it goes again",
-    text: plainbody
+    subject: message[0],
+    text: message[1]
   }
 
   console.log("   sending mail", email)

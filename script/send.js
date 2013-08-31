@@ -1,6 +1,6 @@
 var amqp = require('amqp');
 var fs = require('fs')
-var amqp_hacks = require('./amqp-hacks');
+var amqp_hacks = require('../amqp-hacks');
 
 var config = JSON.parse(fs.readFileSync('./config.json'))
 
@@ -23,12 +23,15 @@ connection.on('ready', function(){
     var msg = [
       Math.round((new Date()).getTime() / 1000),
       process.argv[2],
-      process.argv[3],
-      process.argv[4]
+      [
+        process.argv[3],
+        process.argv[4]
+      ],
+      process.argv[5]
     ]
 
     connection.publish('notifications', JSON.stringify(msg));
     console.log(" [x] Sent:", msg);
 
     amqp_hacks.safeEndConnection(connection);
-});
+}); 
