@@ -1,5 +1,6 @@
 module.exports = function(message, headers, deliveryInfo, queue){
   var fs = require('fs')
+  var argv = require('optimist').argv;
   // Load the configuration JSON file
   var config = JSON.parse(fs.readFileSync('./config.json'))
 
@@ -15,7 +16,11 @@ module.exports = function(message, headers, deliveryInfo, queue){
     var method = require(method_string)
     console.log("Using method:", method.info['name'])
 
-    method.send(payload[3], payload[2])
+    if (!argv.s) {
+      method.send(payload[3], payload[2])
+    } else {
+      console.log("Simulating message send")
+    }
 
   }
 
