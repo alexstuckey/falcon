@@ -11,5 +11,8 @@
     "username": "",
     "password": "",
     "from": ""
-  }
+  },
+  "supportedMethods": [
+    "email"
+  ]
 }
