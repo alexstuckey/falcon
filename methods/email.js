@@ -1,13 +1,14 @@
 exports.info = {
   name: "email"
-}
+};
 
 exports.send = function(address, message) {
-  var fs = require('fs')
-  // Load the configuration JSON file
-  var config = JSON.parse(fs.readFileSync('./config.json'))
+  var fs = require('fs');
 
-  var nodemailer = require('nodemailer')
+  // Load the configuration JSON file
+  var config = JSON.parse(fs.readFileSync('./config.json'));
+
+  var nodemailer = require('nodemailer');
 
   var transport = nodemailer.createTransport("SMTP", {
     service: "gmail",
@@ -15,17 +16,16 @@ exports.send = function(address, message) {
       user: config.SMTP.username,
       pass: config.SMTP.password
     }
-
-  })
+  });
 
   var email = {
     from: config.SMTP.from,
     to: address,
     subject: message[0],
     text: message[1]
-  }
+  };
 
-  console.log("   sending mail", email)
+  console.log("   sending mail", email);
 
   transport.sendMail(email, function(error){
     if(error){
@@ -34,5 +34,5 @@ exports.send = function(address, message) {
       return;
     }
     console.log("Send successful")
-  })
-}
+  });
+};

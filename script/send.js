@@ -1,8 +1,8 @@
 var amqp = require('amqp');
-var fs = require('fs')
+var fs = require('fs');
 var amqp_hacks = require('../amqp-hacks');
 
-var config = JSON.parse(fs.readFileSync('./config.json'))
+var config = JSON.parse(fs.readFileSync('./config.json'));
 
 var connection = amqp.createConnection(
   { 
@@ -16,10 +16,10 @@ var connection = amqp.createConnection(
             enabled : false
           }
   }
-)
+);
   
 connection.on('ready', function(){
-    // msg = [ datetime, method, message, address ]
+    // msg = [ datetime, method, message, address ];
     var msg = [
       Math.round((new Date()).getTime() / 1000),
       process.argv[2],
@@ -28,7 +28,7 @@ connection.on('ready', function(){
         process.argv[4]
       ],
       process.argv[5]
-    ]
+    ];
 
     connection.publish('notifications', JSON.stringify(msg));
     console.log(" [x] Sent:", msg);
