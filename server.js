@@ -18,24 +18,25 @@ var connection = amqp.createConnection({
         }
 });
 
-connection.on('ready', function() {
-  connection.queue('notifications',
-                  { autoDelete: false,
-                    durable: true
-                  },
-                  function(queue) {
-                    console.log('Connected to RabbitMQ @', config.rabbit.host, "...");
-                    console.log('To exit press CTRL-c');
-                    queue.subscribe({ ack: true,
-                                      prefetchCount: 1
-                                    }, function(message, headers, deliveryInfo, queue){
-                                      onMessage(message, headers, deliveryInfo, queue)
-                                    });
-                  });
-
+connection.on('ready', function onConnection() {
+  connection.queue('notifications', {
+      autoDelete: false,
+      durable: true
+    },
+    onQueue(queue));
 });
 
-process.on('uncaughtException', function(err) {
+function onQueue(queue) {
+  console.log('Connected to RabbitMQ @', config.rabbit.host, "...");
+  console.log('To exit press CTRL-c');
+  queue.subscribe({ ack: true,
+                    prefetchCount: 1
+                  }, function(message, headers, deliveryInfo, queue){
+                    onMessage(message, headers, deliveryInfo, queue)
+                  });
+}
+
+process.on('uncaughtException', function onUncaughtException(err) {
   console.log(err.stack);
   throw err;
 });
