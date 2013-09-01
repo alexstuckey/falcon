@@ -2,7 +2,7 @@
   "name": "falcon",
   "private": true,
   "version": "0.0.1",
-  "description": "  The System Garden notification system.",
+  "description": "The System Garden notification system. Built with RabbitMQ as its queue, falcon is a scalable messaging platform intended to be highly extendable.",
   "dependencies": {
     "amqp": "0.1.7",
     "nodemailer": ">=0.5",
