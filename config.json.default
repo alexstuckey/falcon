@@ -17,6 +17,7 @@
     "secret": ""
   },
   "supportedMethods": [
-    "email"
+    "email",
+    "sms"
   ]
 }
