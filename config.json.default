@@ -12,6 +12,10 @@
     "password": "",
     "from": ""
   },
+  "nexmo": {
+    "key": "",
+    "secret": ""
+  },
   "supportedMethods": [
     "email"
   ]
