@@ -23,7 +23,7 @@ connection.on('ready', function onConnection() {
       autoDelete: false,
       durable: true
     },
-    onQueue(queue));
+    onQueue);
 });
 
 function onQueue(queue) {
