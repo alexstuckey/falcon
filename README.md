@@ -8,3 +8,4 @@ falcon is based around the concept of there being an arbitrary number of methods
 This works quite well because it allows for easy extensibility in the future and for anyone who wants to adapt this app for themselves. There are only a few BETA methods at the moment:
 * Email (through SMTP or sendmail)
 * SMS (through [Nexmo](https://www.nexmo.com/))
+* Push notification (work in progress)
