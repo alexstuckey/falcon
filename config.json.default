@@ -22,6 +22,7 @@
   }
   "supportedMethods": [
     "email",
-    "sms"
+    "sms",
+    "boxcar"
   ]
 }
