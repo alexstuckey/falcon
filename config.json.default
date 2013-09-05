@@ -16,8 +16,13 @@
     "key": "",
     "secret": ""
   },
+  "boxcar": {
+    "key": "",
+    "secret": ""
+  }
   "supportedMethods": [
     "email",
-    "sms"
+    "sms",
+    "boxcar"
   ]
 }
